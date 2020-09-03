@@ -1,0 +1,27 @@
+id: metasploit-staging-protocol
+info:
+    name: Meterpreter Staging Protocol Detection
+    author: dottor_morte
+    severity: high
+    description: Request the default stager URI from a MSF instance
+requests:
+    - method: GET
+      path:
+          - "{{BaseURI}}/dzXe-_3Ar2wlciNweiLJDQemu61_IwTlK30NHtCObu8MeE72m"
+      headers:
+          User-Agent: Mozilla/5.0 (Windows NT 6.1; Trident/7.0; rv:11.0) like Gecko
+      redirects: false
+      matchers:
+          - type: dsl
+            dsl:
+                - "status_code==200 && server=='Apache'"
+    - method: MSFTEST #msf will reply to non existent HTTP verbs
+      path:
+          - "{{BaseURI}}/dzXe-_3Ar2wlciNweiLJDQemu61_IwTlK30NHtCObu8MeE72m"
+      headers:
+          User-Agent: Mozilla/5.0 (Windows NT 6.1; Trident/7.0; rv:11.0) like Geck
+      redirects: false
+      matchers:
+         - type: dsl
+           dsl:
+            - "status_code==200 && server=='Apache'"
