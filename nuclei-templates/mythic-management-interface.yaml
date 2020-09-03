@@ -1,9 +1,9 @@
 id: mythic-management-interface
 info:
-    name: Covenant Management Interface 
+    name: Mythic Management Interface 
     author: dottor_morte
     severity: high
-    description: Searches the Covenant management interface exposed over HTTP
+    description: Searches the Mythic management interface exposed over HTTP
 requests:
     - method: GET
       path:
