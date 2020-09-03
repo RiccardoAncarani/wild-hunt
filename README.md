@@ -1,5 +1,18 @@
 # Wild Hunt
 
+## SSL Certificates 
+
+### Cobaltstrike 
+
+```
+masscan -p 50050 IP -oG cobaltstrike
+
+cat cobaltstrike | awk '{print $2}' > cobaltstrike-alive
+./tls-scan --infile=cobaltstrike-alive --port=50050 --starttls=tls -b 100 -o cs.js
+
+grep cobaltstrike cs.js
+```
+
 ## Active Discovery 
 
 ```
