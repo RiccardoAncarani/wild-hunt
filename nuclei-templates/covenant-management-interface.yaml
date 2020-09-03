@@ -1,0 +1,16 @@
+id: covenant-management-interface
+info:
+    name: Covenant Management Interface 
+    author: dottor_morte
+    severity: high
+    description: Searches the Covenant management interface exposed over HTTP
+requests:
+    - method: GET
+      path:
+        - "{{BaseURL}}/"
+      redirects: false
+      matchers:
+        - type: word
+          words:
+            - "covenant"
+          part: body 

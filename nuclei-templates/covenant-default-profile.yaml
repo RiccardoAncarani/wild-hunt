@@ -1,0 +1,16 @@
+id: covenant-default-profile
+info:
+    name: Covenant Default HTTP Profile 
+    author: dottor_morte
+    severity: high
+    description: Matches the default Covenant HTTP profile (https://github.com/cobbr/Covenant/blob/master/Covenant/Data/Profiles/DefaultHttpProfile.yaml)
+requests:
+    - method: GET
+      path:
+        - "{{BaseURL}}/en-us/test.html"
+      redirects: false
+      matchers:
+        - type: word
+          words:
+            - "Hello World"
+          part: body 
